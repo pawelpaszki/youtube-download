@@ -1,11 +1,24 @@
-const express = require('express')
+import dotenv from 'dotenv';
+import express from 'express'
+import search from'youtube-search'
+dotenv.config();
 const app = express()
-const port = 3000
+const port = process.env.PORT
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+var opts = {
+  maxResults: 20,
+  key: process.env.YOUTUBE_KEY
+};
+
+app.get('/:id', (req, res) => {
+  const query = req.query.id;
+  search(query, opts, function(err, results) {
+    if(err) return console.log(err);
+  
+    return res.json(results);
+  });
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Listening on port ${port}`)
 })
