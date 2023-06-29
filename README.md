@@ -2,6 +2,7 @@
 
 ### Installation and execution
 Make sure that you have `ffmpeg` installed
+
 Create `.env` file inside `backend` folder and add:
 
 ```
