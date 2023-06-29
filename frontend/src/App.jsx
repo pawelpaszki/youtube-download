@@ -1,33 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import * as React from 'react';
+import TextField from '@mui/material/TextField';
+import { Container } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const search = () => {
+    console.log('search');
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Container maxWidth="xl"
+        sx={{
+          backgroundColor: 'black',
+          marginTop: 0,
+          marginLeft: 'auto',
+          height: '100vh',
+          width: '100vw',
+          position: 'relative',
+        }}
+      >
+        <TextField sx={{
+          marginTop: '1rem',
+          backgroundColor: 'white',
+          width: '80vw',
+        }}
+          fullWidth placeholder="type your search phrase here" id="fullWidth" />
+        <IconButton aria-label="search" onClick={search}>
+          <SearchIcon sx={{
+            marginTop: '1rem',
+            color: 'white',
+            fontSize: '3rem'
+          }}
+          />
+        </IconButton>
+      </Container>
     </>
   )
 }
