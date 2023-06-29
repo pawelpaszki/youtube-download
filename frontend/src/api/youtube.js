@@ -11,3 +11,18 @@ export const getSearchResults = (query) => {
       throw error
     });
 };
+
+export const download = (link, name) => {
+  return fetch('http://localhost:8080/', {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'post',
+    body: JSON.stringify({ link: link, name: name })
+  }).then((response) => {
+    return response;
+  })
+    .catch((error) => {
+      throw error
+    });
+};
