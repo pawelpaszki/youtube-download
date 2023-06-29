@@ -43,7 +43,8 @@ const App = () => {
           width: '100vw',
           minWidth: '100vw',
           position: 'relative',
-          overflowX: 'hidden'
+          overflowX: 'hidden',
+          paddingBottom: '2rem'
         }}
       >
         <TextField sx={{
